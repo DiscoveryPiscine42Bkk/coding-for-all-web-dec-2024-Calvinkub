@@ -33,9 +33,12 @@ $(document).ready(function () {
     // Save the To-Do list to cookies
     function saveToDo() {
         const toDoArray = [];
+        
         $("#ft_list div").each(function () { // Loop through the list
             toDoArray.push($(this).text());
+        
         });
+        toDoArray.reverse();
         try {
             const jsonToDo = JSON.stringify(toDoArray);
             document.cookie = "todo=" + encodeURIComponent(jsonToDo) + ";path=/";
